@@ -26,7 +26,7 @@ jobs:
         mkdir ~/.ssh
         echo "$remote_key" > ~/.ssh/gh_actions_key
         chmod 600 ~/.ssh/gh_actions_key
-        rsync -avz --exclude '.git' --exclude '.well-known' -e "ssh -i ~/.ssh/gh_actions_key -o StrictHostKeyChecking=no" out/ $remote_user@$remote_host:$remote_path
+        rsync -avz --exclude '.git' --exclude '.well-known' -e "ssh -i ~/.ssh/gh_actions_key -o StrictHostKeyChecking=no" _site/ $remote_user@$remote_host:$remote_path
       env:
         remote_path: ${{ secrets.REMOTE_PATH }}
         remote_host: ${{ secrets.REMOTE_HOST }}
